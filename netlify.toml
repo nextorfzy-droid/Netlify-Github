@@ -1,0 +1,50 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/login"
+  to = "/.netlify/functions/login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/logout"
+  to = "/.netlify/functions/logout"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/session"
+  to = "/.netlify/functions/session"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/panel/exercises"
+  to = "/.netlify/functions/exercises"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/panel/do-exercises"
+  to = "/.netlify/functions/do-exercises"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/panel/get-answers"
+  to = "/.netlify/functions/get-answers"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
